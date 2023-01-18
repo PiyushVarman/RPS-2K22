@@ -9,7 +9,7 @@ bg_image =PhotoImage(file="C://songs//from desktop//PCV//ICT and Python Classes/
 bg_label =Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-title_label =Label(root, text="Stone, Paper, Scissors!", font=("Kyomadoka", 40),fg='white',bg='#000126')
+title_label =Label(root, text="Stone, Paper, Scissors!", font=("Kyomadoka", 40,'bold italic'),fg='white',bg='#000126')
 title_label.place(x=640, y=50, anchor="center")
 
 name_label =Label(root, text="Enter your name:", font=("Consolas", 18),fg='white',bg='#000126')
