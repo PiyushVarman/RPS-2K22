@@ -1,11 +1,15 @@
 from tkinter import *
 import random
+from tkinter import messagebox
 from PIL import ImageTk, Image
 root=Tk()
 
 playscore=0
 cpuscore=0
 
+def box():
+    if messagebox.askyesno("Warning!","Are you sure you want to\nquit and view your results?")==True:
+        hi()
 
 def hi():
     rps.destroy()
@@ -54,8 +58,8 @@ photorock=PhotoImage(file="Play Rock.png")
 photopap=PhotoImage(file="Play Paper.png")
 photosci=PhotoImage(file="Play Scissors.png")
 
-image=Image.open('C://songs//from desktop//PCV//ICT and Python Classes//Python Classes//Class XI- Python Programs//Fun and Games//Rock Paper Scissors//journeys.jfif')
-background=ImageTk.PhotoImage(image)
+image=Image.open('C://songs//from desktop//PCV//ICT and Python Classes//Python Classes//Class XI- Python Programs//Fun and Games//Rock Paper Scissors//journeys.jpeg')
+bg=ImageTk.PhotoImage(image)
 def gamewindow():
     #Text Part
     global rps
@@ -64,18 +68,20 @@ def gamewindow():
     root.iconify()
     hello='Hello '+e.get()+". Let's Begin!"
     rps=Toplevel(root)
-    lbl=Label(rps,image=background)
+    lbl=Label(rps,image=bg)
     lbl.place(x=0,y=0)
-    rps.geometry("1000x667")
+    rps.geometry("1254x472")
+    rps.resizable(False,False)
     rps.title("Rock, Paper, Scissors!")
 
     #Game Part
     lb2=Label(rps,text=hello,font=('KyoMadoka',25,'bold'),bg='#FFD700',borderwidth=2,relief="solid")
-    lb2.grid(sticky='ew')
-    exitbtn=Button(rps,text='QUIT☻',command=hi,bg='#FFD700',activebackground='red',activeforeground='pink',fg='black',font=("Consolas",12),cursor='hand2').grid(row=5,column=0,sticky='w')
-    rock=Button(rps,image=photorock,borderwidth=0,command=rock,bg='cyan',activebackground='yellow').grid(row=2,column=0)
-    pap=Button(rps,image=photopap,borderwidth=0).grid(row=2,column=1)
-    sci=Button(rps,image=photosci,borderwidth=0).grid(row=2,column=2,padx=50)
+    lb2.place(x=640, y=20, anchor="center")
+    exitbtn=Button(rps,text='QUIT☻',command=box,bg='#FFD700',activebackground='red',activeforeground='pink',fg='black',font=("Consolas",12),cursor='hand2').place(x=1185,y=430)
+    rock=Button(rps,image=photorock,borderwidth=0,command=rock,bg='#fd0889',activebackground='yellow').place(x=50,y=50)
+    pap=Button(rps,image=photopap,borderwidth=0,bg='#fd0889').place(x=450,y=50)
+    sci=Button(rps,image=photosci,borderwidth=0,bg="#fe2b8c").place(x=850,y=50)
+    
     
 
 
