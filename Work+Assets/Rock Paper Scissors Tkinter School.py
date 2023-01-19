@@ -2,7 +2,10 @@ from tkinter import *
 import random
 from tkinter import messagebox
 from PIL import ImageTk, Image
-root=Tk()
+root =Tk()
+root.geometry("1254x472")
+root.resizable(False,False)
+root.title("Stone, Paper, Scissors!")
 
 playscore=0
 cpuscore=0
@@ -107,49 +110,59 @@ def scissors():
     
 
 
-photo=PhotoImage(file='rock-emoji.png')
-root.iconphoto(False,photo)
-
 photorock=PhotoImage(file="Play Rock.png")
 photopap=PhotoImage(file="Play Paper.png")
 photosci=PhotoImage(file="Play Scissors.png")
 
-image=Image.open('G://Piyush Chandra Varman 11D//RPS//PCV Work//Work+Assets//journeys.jpeg')
+image=Image.open('G://Piyush Chandra Varman 11D//RPS//PCV Work//Work+Assets//bgimage (1).png')
 bg=ImageTk.PhotoImage(image)
+
+image1=Image.open('G://Piyush Chandra Varman 11D//RPS//PCV Work//Work+Assets//solid-color-image (1).png')
+bg1=ImageTk.PhotoImage(image1)
 def gamewindow():
     #Text Part
     global rps
     global rock
     global image
     root.iconify()
-    hello='Hello '+e.get()+". Let's Begin!"
+    hello='Hello '+name_entry.get()+". Let's Begin!"
     rps=Toplevel(root)
-    lbl=Label(rps,image=bg)
+    lbl=Label(rps,image=bg1)
     lbl.place(x=0,y=0)
     rps.geometry("1254x472")
     rps.resizable(False,False)
-    rps.title("Rock, Paper, Scissors!")
+    rps.title("Stone, Paper, Scissors!")
 
     #Game Part
-    lb2=Label(rps,text=hello,font=('KyoMadoka',25,'bold'),bg='#FFD700',borderwidth=2,relief="solid")
-    lb2.place(x=640, y=20, anchor="center")
+    lb2=Label(rps,text=hello,font=('KyoMadoka',25,'bold'),fg='white',bg='#000126',borderwidth=2,relief="solid")
+    lb2.place(x=640, y=25, anchor="center")
     exitbtn=Button(rps,text='Quit',command=box,bg='#FFD700',activebackground='red',activeforeground='pink',fg='black',font=("Consolas",12),cursor='hand2').place(x=1185,y=430)
-    rock=Button(rps,image=photorock,borderwidth=0,command=rock,bg='#fd0889',activebackground='yellow').place(x=50,y=50)
-    pap=Button(rps,image=photopap,borderwidth=0,bg='#f9af8c',command=paper).place(x=450,y=50)
-    sci=Button(rps,image=photosci,borderwidth=0,bg="#fdd979",command=scissors).place(x=850,y=50)
+    rock=Button(rps,image=photorock,borderwidth=0,command=rock,bg='#000126',activebackground='#23F900').place(x=50,y=50)
+    pap=Button(rps,image=photopap,borderwidth=0,bg='#000126',command=paper).place(x=450,y=50)
+    sci=Button(rps,image=photosci,borderwidth=0,bg="#000126",command=scissors).place(x=850,y=50)
     
     
 
 
 
-image=Image.open('G://Piyush Chandra Varman 11D//RPS//PCV Work//Work+Assets//journeys.jpeg')
-background=ImageTk.PhotoImage(image)
-root.geometry("1000x667")
-lbl=Label(root,image=background)
-lbl.place(x=0,y=0)
-labe=Label(text="Hello World!",bg="#FFD700",cursor='dotbox').pack()
-e=Entry(root)
-e.pack()
+bg_image =PhotoImage(file="G://Piyush Chandra Varman 11D//RPS//Rahul LJ 17th Jan//bgimage (1).png")
+bg_label =Label(root, image=bg_image)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-root.title("Welcome!")
-btn=Button(root,text='Enter',command=gamewindow,cursor='hand2').pack()
+title_label =Label(root, text="Stone, Paper, Scissors!", font=("Kyomadoka",40,'bold italic'),fg='white',bg='#000126')
+title_label.place(x=640, y=50, anchor="center")
+
+name_label =Label(root, text="Enter your name:", font=("Consolas",18),fg='white',bg='#000126')
+name_label.place(x=640, y=250, anchor="center")
+
+name_var = StringVar()
+name_entry = Entry(root, textvariable=name_var, font=("Helvetica", 18,"bold"),borderwidth=4)
+name_entry.place(x=640,y=300, anchor="center")
+
+play_button =Button(root, text="Play", font=("Helvetica", 18), command=gamewindow, bg="#00b300", activebackground='yellow',cursor='hand2',fg="white", width=5, height=1,borderwidth=0)
+play_button.place(x=640,y=375, anchor="center")
+
+photo = PhotoImage(file ='rock-emoji.png')
+root.iconphoto(False, photo)
+
+root.mainloop()
