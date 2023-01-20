@@ -164,7 +164,7 @@ def gamewindow():
         pap=Button(rps,image=photopap,borderwidth=0,bg='#000126',command=paper,activebackground='#23F900').place(x=450,y=50)
         sci=Button(rps,image=photosci,borderwidth=0,bg="#000126",command=scissors,activebackground='#23F900').place(x=850,y=50)
     else:
-        messagebox.showerror('Wrong Username!', 'Usernames must include\neither alphabets or numbers')
+        messagebox.showerror('Wrong Username!', 'Usernames must include\neither alphabets,numbers or both')
     
 
 
